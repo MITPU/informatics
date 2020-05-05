@@ -2,7 +2,7 @@
 title: "[ InformaticsMN ]"
 email: "******@*****.com"
 description: > # this means to ignore newlines until "baseurl:"
-baseurl: "informaticsmn" # the subpath of your site, e.;w
+baseurl: "/informaticsmn" # the subpath of your site, e.;w
 
 # Build settings
 markdown: kramdown
