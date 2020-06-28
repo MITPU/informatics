@@ -44,6 +44,67 @@ def selectionSort(arr):
     	arr[min_indx] = temp
 ```
 
+## **Оруулан эрэмбэлэх - Insertion Sort**
+*Insertion sort* нь эрэмбэлэлтийн энгийн алгоритмуудын нэг бөгөөд бидний гартаа байгаа хөзрөө хэрхэн нэг нэгээр нь багаас их рүү нь эрэмбэлэн байрлуулдагтай ижил зарчмаар ажилладаг. Энэ эрэмбэлэх алгоритм нь томоохон хэмжээний өгөгдөлд ашиглах үед бусад ахисан түвшний аргуудаас удаан боловч дараах гол давуу талуудтай. Үүнд:
+
+- Кодчилоход хялбар;
+- Маш бага өгөгдөл дээр хурдан ажилладаг;
+- Бусад ижил түвшний (n^2) эрэмбэлэх аргуудыг (*selection sort*, *bubble sort*) бодвол илүү хурдтай байх хандлагатай;
+- Нэмэлт санах ой ашигладаггүй;
+
+**Time and Space Complexity -  Хугацаа болон санах ойн үнэлгээ**
+|   | Time Complexity  | Space Complexity  |
+|---|---|---|
+| Сайн нөхцөлд  | O(n)  |  O(1) |
+| Дунджаар | O(n^2)  | O(1) |
+| Муу нөхцөлд  |  O(n^2 |  O(1) |
+
+
+```java
+// insertion sort алгоритмын Java дээрх код 
+class InsertionSort { 
+    /*insertion sort ашиглаж буй эрэмбэлэх функц*/
+    void sort(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i = 1; i < n; ++i) { 
+            int key = arr[i]; 
+            int j = i - 1; 
+  
+            /* key-гээс их arr[0..i-1]-ын элементүүдийг 
+            одоо байгаа байрлалын яг өмнөх байрлал руу нүүлгэж байна */
+            while (j >= 0 && arr[j] > key) { 
+                arr[j + 1] = arr[j]; 
+                j = j - 1; 
+            } 
+            arr[j + 1] = key; 
+        } 
+    } 
+  
+    /* n хэмжээтэй массивиыг хэвлэх туслах функц*/
+    static void printArray(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i = 0; i < n; ++i) 
+            System.out.print(arr[i] + " "); 
+  
+        System.out.println(); 
+    } 
+  
+    // main функц
+    public static void main(String args[]) 
+    { 
+        int arr[] = { 12, 11, 13, 5, 6 }; 
+  
+        InsertionSort ob = new InsertionSort(); 
+        ob.sort(arr); 
+  
+        printArray(arr); 
+    } 
+}
+
+```
+
 ## **Хурдан эрэмбэлэх - Quick Sort**
 
 [Quicksort][Quicksort] бол [Divide and Conquer][Divide and Conquer] дээр суурилсан эрэмбэлэлтийн алгоритм юм.  Quicksort нь массиваас пивот цэг сонгон аваад массивийн элемэнтүүдийг тухайн пивот элемэнтээс их болон бага гэсэн 2 жижиг массивт хуваан дахин 2 жижиг массивыг энэхүү байдалаар эрэмбэлнэ. 
@@ -157,9 +218,11 @@ public class MergeSort{
 ```
 
 
-## **Ажигласан материалууд:**
+## **Ашигласан материалууд:**
 1. https://en.wikipedia.org/wiki/Quicksort
 2. https://www.topcoder.com/community/competitive-programming/tutorials/sorting
+3. https://en.wikipedia.org/wiki/Insertion_sort
+4. https://www.geeksforgeeks.org/insertion-sort
 
 [Quicksort]: https://en.wikipedia.org/wiki/Quicksort
 [Divide and Conquer]: https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm
