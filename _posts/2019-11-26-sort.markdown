@@ -53,12 +53,12 @@ def selectionSort(arr):
 - Нэмэлт санах ой ашигладаггүй;
 
 **Time and Space Complexity -  Хугацаа болон санах ойн үнэлгээ**
+
 |   | Time Complexity  | Space Complexity  |
 |---|---|---|
 | Сайн нөхцөлд  | O(n)  |  O(1) |
 | Дунджаар | O(n^2)  | O(1) |
-| Муу нөхцөлд  |  O(n^2 |  O(1) |
-
+| Муу нөхцөлд  |  O(n^2) |  O(1) |
 
 ```java
 // insertion sort алгоритмын Java дээрх код 
