@@ -238,3 +238,23 @@
         }
     }
 }
+
+table.time-space-complexity {
+    width: 100%;
+    > thead {
+        background-color: $brand-color;
+        color: white;
+    }
+    > tbody {
+            td {
+                    text-align: center;
+            }
+    }
+    border-bottom: 2px solid $grey-color-light;
+    margin-bottom: 20px;
+}
+
+.table-title {
+    color: $grey-color;
+    font-style: italic;
+}
