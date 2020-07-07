@@ -2,7 +2,7 @@
 layout: post
 title:  "Эрэмбэлэлтийн энгийн алгоритмууд"
 date:   2019-11-26 01:59:54 -0500
-author: "Хонгор"
+author: "Адъяа"
 category: "эрэмбэлэлт"
 ---
 # **Эрэмбэлэлт гэж юу вэ?**
@@ -13,7 +13,7 @@ category: "эрэмбэлэлт"
 
 Эрэмбэлэлтийг хийх олон арга зам байдаг. Бодлогын нөхцөл болон хязгаарлалтаас хамаарч оновчтой сонголт хийн ашиглах нь чухал. 
 
-## **Сонгон эрэмбэлэх - Selection Sort**
+# **Сонгон эрэмбэлэх - Selection Sort**
 
 Энэ нь хамгийн энгийн эрэмбэлэлтийн алгоритм юм. Массивийг эрэмбэлэхдээ эрэмбэлэгдсэн эрэмбэлэгдээгүй гэсэн 2 хэсэгт хуваан эрэмбэлэгдээгүй хэсгээс хамгийн бага элементийг олж эрэмбэлэгдээгүй хэсгийн хамгийн эхний элементтэй байрыг нь сольж эрэмбэлээгүй хэсгээ нэгээр багасгана. Гэх мэт явсаар массивыг эрэлбэлж дуусгана. 
 
@@ -45,7 +45,7 @@ def selectionSort(arr):
     	arr[min_indx] = temp
 ```
 
-## **Оруулан эрэмбэлэх - Insertion Sort**
+# **Оруулан эрэмбэлэх - Insertion Sort**
 *Insertion sort* нь эрэмбэлэлтийн энгийн алгоритмуудын нэг бөгөөд бидний гартаа байгаа хөзрөө хэрхэн нэг нэгээр нь багаас их рүү нь эрэмбэлэн байрлуулдагтай ижил зарчмаар ажилладаг. Энэ эрэмбэлэх алгоритм нь томоохон хэмжээний өгөгдөлд ашиглах үед бусад ахисан түвшний аргуудаас удаан боловч дараах гол давуу талуудтай. Үүнд:
 
 - Кодчилоход хялбар;
@@ -106,230 +106,8 @@ class InsertionSort {
 
 ```
 
-## **Хурдан эрэмбэлэх - Quick Sort**
-
-[Quicksort][Quicksort] бол [Divide and Conquer][Divide and Conquer] дээр суурилсан эрэмбэлэлтийн алгоритм юм.  Quicksort нь массиваас пивот цэг сонгон аваад массивийн элемэнтүүдийг тухайн пивот элемэнтээс их болон бага гэсэн 2 жижиг массивт хуваан дахин 2 жижиг массивыг энэхүү байдалаар эрэмбэлнэ. 
-
-**Time Complexity -  Хугацааны үнэлгээ**
-
-Хамгийн шилдэг| O(n log n)
-Дундаж | O(n log n)
-Хамгийн муу | O(n^2)
-
-```python
-
-def partition(arr, low, high): 
-    i = ( low-1 )         #жижиг элемэнтүүдийн индекс
-    pivot = arr[high]     # пивот 
-    for j in range(low , high): 
-  
-        # хэрэв одоо байгаа элемент пивот элементээс бага буюу тэнцүү үед
-        if   arr[j] <= pivot: 
-            i = i+1 
-            arr[i],arr[j] = arr[j],arr[i] 
-  
-    arr[i+1],arr[high] = arr[high],arr[i+1] 
-    return ( i+1 ) 
-  
-def quickSort(arr, low, high): 
-    if low < high: 
-        # pi пивот идекс 
-        pi = partition(arr, low, high) 
- 
-        # пивот цэгээс өмнөх болон дараах (их, бага) дэд массивыг дахин эрэмбэлэх
-        quickSort(arr, low, pi-1) 
-        quickSort(arr, pi+1, high) 
-```
-
-## **Нэгтгэн эрэмбэлэх - Merge Sort**
-*Merge sort* бол энгийн, хэрэгжүүлэхэд хялбархан боловч маш хучирхэг эрэмбэлэлтийн алгоримт юм. Энэхүү алгоритм нь [Divide and Conquer][Divide and Conquer] аргачлал дээр суурилдаг буюу том өөгдлийг жижиг дэд хэсгүүдэд хуваагаад (divide), тэдгээр жижиг дэд хэсгүүдийг эрэмбэлсэний дараа буцаан нэгтгэх (conquer) байдлаар өгөгдлийг эрэмбэлдэг. 
-
-Энэ алгоримт нь хоёр зүйлээр онцлог бөгөөд давуу талтай. 1. Хүлээгдэж буй хугацааны үнэлгээ нь хамгийн муу тохиолдолд O(n log n) буюу [Харьцуулах аргаар эрэмбэлэх](https://en.wikipedia.org/wiki/Comparison_sort) алгоримтын боломжит хамгийн сайн үнэлгээнд ажиллана. 2. Энэ алгоримт нь [тогтовортой эрэмбэлэлт](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability) хийдэг буюу хамгийн ижил утгатай өгөгдлийн байрыг эрэмбэлэх үедээ алдагдуулдаггүй. 
-
-Энэхүү алгоримтын дутагдалтай тал нь ажиллахын тулд O(n) нэмэлт санах ой хэргэлдэг.
-
-**Time and Space Complexity -  Хугацаа болон санах ойн үнэлгээ**
-
-|   | Time Complexity  | Space Complexity  |
-|---|---|---|
-| Сайн нөхцөлд  | Ω(n log n)  |  O (n) |
-| Дундаж нөхцөлд | Θ(n log n)  | O (n) |
-| Муу нөхцөлд  |  O(n log n) |  O(n) |
-
-
-```java
-public class MergeSort{
-
-    public static void sort(int[] arr){
-          sort(arr, 0, arr.length);
-    }
-
-    public static void sort(int[] arr, int low, int high){
-        //1-ээс их урттай хэсгийг л эрэмбэлнэ.
-        //1 урттай нь эрэмбэлэгдсэн гэсэн үг.
-        if(low+1 < high){
-
-            //divide хэсэг. 
-            //массивийг хоёр тэнцүү хэсэгт хувааж тус бүрд нь эрэмбэлнэ.
-            int mid = low+ (high-low)/2;
-            sort(arr, low, mid);
-            sort(arr, mid, high);
-
-            //conquer хэсэг.
-            //эрэмбэлэгдсэн дэд хэсгүүдийг нэгтгэнэ.
-            merge(arr, low, mid, high);
-        }
-    }
-
-    private static void merge(int[] arr, int low, int mid, int high){
-
-        /*Нэмэлт санах ой ашиглан эрэмбэлэгдсэн дэд
-        хэсгүүдийг хуулж байна.
-        */
-        int[] left=java.util.Arrays.copyOfRange(arr,low,mid);
-        int[] right=java.util.Arrays.copyOfRange(arr,mid,high);
-
-        /*
-        Эрэмбэлэгдсэн дэд хэсгүүдээс алхам бүрд аль багыг нь сонгон авч
-        буцаан эрэмбэлэх ёстой массив уруу хуулна.
-        */
-        int l=0;
-        int r=0;
-        while( l<left.length && r< right.length){
-             if(left[l]< right[r]){
-                 arr[low++]=left[l++];
-             }else{
-                 arr[low++]=right[r++];
-             }
-        }
-
-        /*
-        Өмнөх алхамд дуусгаагүй үлдэгдэл байвал түүнийг хуулна.
-        */
-        while(l<left.length){
-            arr[low++]=left[l++];
-        }
-
-        while(r<right.length){
-            arr[low++]=right[r++];
-        }
-    }
-}
-
-```
-
-## **Модоор эрэмбэлэх - Tree Sort**
-*Tree sort* нь [хоёртын хайлтын модны](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion) өгөгдлийн бүтцэд суурилсан эрэмбэлэх алгоритм юм. Уг алгоритм нь хамгийн түрүүнд, өгөгдсөн массивын элементүүдээр хоёртын хайлтын мод үүсгэдэг бөгөөд түүнийхээ дараа үүсгэсэн хоёртын хайлтын модоо [in-order traversal (зүүн -> эцэг -> баруун)](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion) аргаар гүйж элементүүдийг эрэмбэлэгдсэн байрлалд байрлуулдаг.
-
-**Алгоритм:**
-
-Алхам 1: Өгөгдсөн массив дахь элементүүдийг нэг нэгээр нь авна.\
-Алхам 2: Хоёртын хайлтын модонд бага элементийг зүүн талд нь их элементийг баруун талд нь оруулах замаар хоёртын хайлтын мод үүсгэнэ.\
-Алхам 3: Элементүүдийг эрэмбэлсэн дарааллаар авахын тулд модон дотроо in-order traversal (зүүн -> эцэг -> баруун) аргыг ашиглана.
-
-**Time and Space Complexity -  Хугацаа болон санах ойн үнэлгээ:**
-
-|   | Time Complexity  | Space Complexity  |
-|---|---|---|
-| Сайн нөхцөлд  | O(n log n) |  O(n) |
-| Дунджаар | O(n log n)  | O(n) |
-| Муу нөхцөлд  | O(n^2) (unbalanced tree)  |  O(n) |
-|   | O(n log n) (balanced tree)  |  O(n) |
-
-```java
-// tree sort алгоритмын Java дээрх код 
-class MyTreeSort  
-{ 
-    //тухайн нүдний утга болон түүний зүүн 
-    //болон баруун нүдийг агуулсан класс
-    class Node  
-    { 
-        int key; 
-        Node left, right; 
-  
-        public Node(int item)  
-        { 
-            key = item; 
-            left = right = null; 
-        } 
-    } 
-  
-    //Хоёртын хайлтын модны үндэс (эцэг) 
-    Node root; 
-  
-    // Конструктор 
-    MyTreeSort()  
-    {  
-        root = null;  
-    } 
-  
-    // insertRec() дуудах функц
-    void insert(int key) 
-    { 
-        root = insertRec(root, key); 
-    } 
-      
-    /* Хоёртын хайлтын модонд 
-    утга нэмэх рекурсив функц */
-    Node insertRec(Node root, int key)  
-    { 
-  
-        /*Мод хоосон байвал шинэ нүд буцаана */
-        if (root == null)  
-        { 
-            root = new Node(key); 
-            return root; 
-        } 
-  
-        /*хоосон биш бол модны салааруу доош рекурс хийнэ */
-        if (key < root.key) 
-            root.left = insertRec(root.left, key); 
-        else if (key > root.key) 
-            root.right = insertRec(root.right, key); 
-  
-        /* үндсийг буцаана */
-        return root; 
-    } 
-      
-    //  Хоёртын хайлтын модонд in-order traversal хийх функц
-    void inorderRec(Node root)  
-    { 
-        if (root != null)  
-        { 
-            inorderRec(root.left); 
-            System.out.print(root.key + " "); 
-            inorderRec(root.right); 
-        } 
-    } 
-    void treeins(int arr[]) 
-    { 
-        for(int i = 0; i < arr.length; i++) 
-        { 
-            insert(arr[i]); 
-        } 
-          
-    } 
-  
-    // main функц
-    public static void main(String[] args)  
-    { 
-        MyTreeSort tree = new MyTreeSort(); 
-        int arr[] = {5, 4, 7, 2, 11}; 
-        tree.treeins(arr); 
-        tree.inorderRec(tree.root); 
-    } 
-} 
-
-```
 
 ## **Ашигласан материалууд:**
-1. https://en.wikipedia.org/wiki/Quicksort
-2. https://www.topcoder.com/community/competitive-programming/tutorials/sorting
-3. https://en.wikipedia.org/wiki/Insertion_sort
-4. https://www.geeksforgeeks.org/insertion-sort
-5. https://en.wikipedia.org/wiki/Tree_sort
-6. https://www.geeksforgeeks.org/tree-sort
-
-[Quicksort]: https://en.wikipedia.org/wiki/Quicksort
-[Divide and Conquer]: https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm
-
+1. https://www.topcoder.com/community/competitive-programming/tutorials/sorting
+2. https://en.wikipedia.org/wiki/Insertion_sort
+3. https://www.geeksforgeeks.org/insertion-sort
