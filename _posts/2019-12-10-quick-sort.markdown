@@ -16,7 +16,7 @@ category: "эрэмбэлэлт"
 | Дундаж         | O(n log n)      |
 | Хамгийн муу    | O(n^2)          |
 
-```python
+{% highlight python %}
 
 def partition(arr, low, high): 
     i = ( low-1 )         #жижиг элемэнтүүдийн индекс
@@ -39,7 +39,7 @@ def quickSort(arr, low, high):
         # пивот цэгээс өмнөх болон дараах (их, бага) дэд массивыг дахин эрэмбэлэх
         quickSort(arr, low, pi-1) 
         quickSort(arr, pi+1, high) 
-```
+{% endhighlight %}
 
 ## **Ашигласан материалууд:**
 1. https://en.wikipedia.org/wiki/Quicksort
