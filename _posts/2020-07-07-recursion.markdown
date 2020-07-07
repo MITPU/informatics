@@ -20,14 +20,14 @@ $$
 
 Одоо $$n!$$ олох $$f(n)$$ гэдэг функц бичье. Хэрэв энэ функцийг $$n=0$$ үед дуудвал, $$1$$ гэж буцаана. Энэ нь манай функцийн зогсох нөхцөл. Харин $$n≥1$$ үед $$f(n-1)$$ олсны дараа $$n!$$ олдоно.
 
-```c++
+{% highlight cpp %}
 int f(int n) {
   if (n >= 1) {
     return f(n - 1) * n;
   }
   return 1;
 }
-```
+{% endhighlight %}
 
 <img width="562" alt="image4" src="https://user-images.githubusercontent.com/12068641/86842716-7756fa80-c05a-11ea-8099-9461d6e4238c.png">
 
@@ -45,7 +45,7 @@ $$size(d) = size(f_{1}) +  size(f_{2}) + ... +  size(f_{m}) +  size(d_{1}) +  si
 
 # Java дээрх код
 
-```java
+{% highlight java %}
 // Хэрэглээ
 System.out.println(getSize(new File(directory)) + “ bytes“);
 
@@ -61,7 +61,7 @@ long getSize(File file) {
 
   return size;
 }
-```
+{% endhighlight %}
 
 
 Өөр нэг рекурсив ашиглавал хялбар Ханойн Цамхаг (Tower of Hanoi) бодлогон дээр илүү ойлгомжтой харагдана.
@@ -82,7 +82,7 @@ $$n=3$$ үед шийдэл олоход хялбар харагдаж байн�
 
 <img width="532" alt="image6" src="https://user-images.githubusercontent.com/12068641/86843380-50e58f00-c05b-11ea-819d-22460718f87d.png">
 
-```java
+{% highlight java %}
 moveDisks(n, 'A', 'B', 'C');
 
 void moveDisks(int n, char fromTower, char toTower, char auxTower) {
@@ -94,7 +94,7 @@ void moveDisks(int n, char fromTower, char toTower, char auxTower) {
     moveDisks(n - 1, auxTower, toTower, fromTower);
   }
 }
-```
+{% endhighlight %}
 
 $$n = 3$$ үед код хэрхэн ажилахыг харуулвал:
 

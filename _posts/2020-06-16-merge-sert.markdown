@@ -21,7 +21,7 @@ category: "эрэмбэлэлт"
 | Муу нөхцөлд    | O(n log n)      | O(n)             |
 
 
-```java
+{% highlight java %}
 public class MergeSort{
 
     public static void sort(int[] arr){
@@ -80,6 +80,6 @@ public class MergeSort{
     }
 }
 
-```
+{% endhighlight %}
 
 [Divide and Conquer]: https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm

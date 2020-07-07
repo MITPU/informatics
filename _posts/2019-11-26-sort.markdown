@@ -34,7 +34,7 @@ category: "эрэмбэлэлт"
 Алхам 4: [1, 2, 3, 6, 4, 9, 10] -> [1, 2, 3, 4, 6, 9, 10] гэх мэт.. 
 
 
-```python
+{% highlight python %}
 def selectionSort(arr): 
     for i in range(len(arr)):
         # Хамгийн бага элемент олох
@@ -46,7 +46,7 @@ def selectionSort(arr):
     	temp = arr[i]
     	arr[i] = ar[min_indx]
     	arr[min_indx] = temp
-```
+{% endhighlight %}
 
 # **Оруулан эрэмбэлэх - Insertion Sort**
 *Insertion sort* нь эрэмбэлэлтийн энгийн алгоритмуудын нэг бөгөөд бидний гартаа байгаа хөзрөө хэрхэн нэг нэгээр нь багаас их рүү нь эрэмбэлэн байрлуулдагтай ижил зарчмаар ажилладаг. Энэ эрэмбэлэх алгоритм нь томоохон хэмжээний өгөгдөлд ашиглах үед бусад ахисан түвшний аргуудаас удаан боловч дараах гол давуу талуудтай. Үүнд:
@@ -65,7 +65,7 @@ def selectionSort(arr):
 | Дунджаар | O(n^2)  | O(1) |
 | Муу нөхцөлд  |  O(n^2) |  O(1) |
 
-```java
+{% highlight java %}
 // insertion sort алгоритмын Java дээрх код 
 class InsertionSort { 
     /*insertion sort ашиглаж буй эрэмбэлэх функц*/
@@ -108,7 +108,7 @@ class InsertionSort {
     } 
 }
 
-```
+{% endhighlight %}
 
 
 ## **Ашигласан материалууд:**

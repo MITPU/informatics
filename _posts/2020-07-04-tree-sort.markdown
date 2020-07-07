@@ -23,7 +23,7 @@ category: "эрэмбэлэлт"
 | Муу нөхцөлд  | O(n^2) (unbalanced tree)  |  O(n) |
 |   | O(n log n) (balanced tree)  |  O(n) |
 
-```java
+{% highlight java %}
 // tree sort алгоритмын Java дээрх код 
 class MyTreeSort  
 { 
@@ -107,7 +107,7 @@ class MyTreeSort
     } 
 } 
 
-```
+{% endhighlight %}
 
 ## **Ашигласан материалууд:**
 1. https://en.wikipedia.org/wiki/Tree_sort
