@@ -3,7 +3,7 @@ layout: post
 title:  "Disjoint-set"
 date:   2020-07-07 00:00:00 -0500
 author: "Амар"
-category: "Өгөгдлийн бүтэж"
+category: "Өгөгдлийн бүтэц"
 comments: true
 ---
 **Бодлого**
