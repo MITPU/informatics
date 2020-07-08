@@ -40,10 +40,10 @@ public void preorder(TreeNode root) {
     System.out.println(root.data);
 
     // Зүүн талын дэд модыг нэвтрэнэ.
-    inorder(root.left);
+    preorder(root.left);
 
     // Баруун талын дэд модыг нэврэнэ.
-    inorder(root.right);
+    preorder(root.right);
 }
 {% endhighlight %}
 
