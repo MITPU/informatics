@@ -173,19 +173,23 @@
     margin-left: 0;
     list-style: none;
 
-    > li {
-        margin-bottom: $spacing-unit;
+    > li.post-category {
+        font-size: 20px;
+    }
+
+    > li.post {
+        margin-bottom: 10px;
+    }
+
+    .date-author {
+        display: inline-block;
+        float: right;
     }
 }
 
 .post-meta {
     font-size: $small-font-size;
     color: $grey-color;
-}
-
-.post-link {
-    display: block;
-    font-size: 24px;
 }
 
 
@@ -233,4 +237,24 @@
             font-size: 18px;
         }
     }
+}
+
+table.time-space-complexity {
+    width: 100%;
+    > thead {
+        background-color: $brand-color;
+        color: white;
+    }
+    > tbody {
+            td {
+                    text-align: center;
+            }
+    }
+    border-bottom: 2px solid $grey-color-light;
+    margin-bottom: 20px;
+}
+
+.table-title {
+    color: $grey-color;
+    font-style: italic;
 }

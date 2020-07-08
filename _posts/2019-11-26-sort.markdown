@@ -1,10 +1,12 @@
 ---
 layout: post
-title:  "Эрэмбэлэлт - Sort"
+title:  "Эрэмбэлэлтийн энгийн алгоритмууд"
 date:   2019-11-26 01:59:54 -0500
-categories: Sort
+author: "Адъяа"
+category: "эрэмбэлэлт"
+comments: true
 ---
-# **Эрэмбэлэлт - Sort**
+# **Эрэмбэлэлт гэж юу вэ?**
 
 Эрэмбэлэлт нь бидний өдөр дутмын амьдралд байнга тааралддаг. Биеийн тамирын хичээл дээр өндрөөс нам уруу жагсах гэх мэт. Ингэж дараалалд оруулсанаар бид ангийн хамгийн өндөр болон намхан хүүхдийг хялбархан мэдэж болхоос гадна ангийн дундаж өндөртэй хүүхдийг төвөггүй олж чадах юм.
 
@@ -12,15 +14,18 @@ categories: Sort
 
 Эрэмбэлэлтийг хийх олон арга зам байдаг. Бодлогын нөхцөл болон хязгаарлалтаас хамаарч оновчтой сонголт хийн ашиглах нь чухал. 
 
-## **Сонгон эрэмбэлэх - Selection Sort**
+# **Сонгон эрэмбэлэх - Selection Sort**
 
 Энэ нь хамгийн энгийн эрэмбэлэлтийн алгоритм юм. Массивийг эрэмбэлэхдээ эрэмбэлэгдсэн эрэмбэлэгдээгүй гэсэн 2 хэсэгт хуваан эрэмбэлэгдээгүй хэсгээс хамгийн бага элементийг олж эрэмбэлэгдээгүй хэсгийн хамгийн эхний элементтэй байрыг нь сольж эрэмбэлээгүй хэсгээ нэгээр багасгана. Гэх мэт явсаар массивыг эрэлбэлж дуусгана. 
 
-**Time Complexity -  Хугацааны үнэлгээ**
+<center class="table-title">Хугацааны үнэлгээ</center>
 
-Хамгийн шилдэг| O (n^2)
-Дундаж | O (n^2)
-Хамгийн муу | O(n^2)
+{:.time-space-complexity}
+|                | Хугацаа         |
+|----------------|-----------------|
+|Хамгийн шилдэг| O (n^2)|
+|Дундаж | O (n^2) |
+|Хамгийн муу | O(n^2)|
 
 Жишээ нь: [4, 3, 6, 2, 1, 9, 10] гэсэн массив өгөгдөхөд
 
@@ -30,7 +35,7 @@ categories: Sort
 Алхам 4: [1, 2, 3, 6, 4, 9, 10] -> [1, 2, 3, 4, 6, 9, 10] гэх мэт.. 
 
 
-```python
+{% highlight python %}
 def selectionSort(arr): 
     for i in range(len(arr)):
         # Хамгийн бага элемент олох
@@ -42,125 +47,72 @@ def selectionSort(arr):
     	temp = arr[i]
     	arr[i] = ar[min_indx]
     	arr[min_indx] = temp
-```
+{% endhighlight %}
 
-## **Хурдан эрэмбэлэх - Quick Sort**
+# **Оруулан эрэмбэлэх - Insertion Sort**
+*Insertion sort* нь эрэмбэлэлтийн энгийн алгоритмуудын нэг бөгөөд бидний гартаа байгаа хөзрөө хэрхэн нэг нэгээр нь багаас их рүү нь эрэмбэлэн байрлуулдагтай ижил зарчмаар ажилладаг. Энэ эрэмбэлэх алгоритм нь томоохон хэмжээний өгөгдөлд ашиглах үед бусад ахисан түвшний аргуудаас удаан боловч дараах гол давуу талуудтай. Үүнд:
 
-[Quicksort][Quicksort] бол [Divide and Conquer][Divide and Conquer] дээр суурилсан эрэмбэлэлтийн алгоритм юм.  Quicksort нь массиваас пивот цэг сонгон аваад массивийн элемэнтүүдийг тухайн пивот элемэнтээс их болон бага гэсэн 2 жижиг массивт хуваан дахин 2 жижиг массивыг энэхүү байдалаар эрэмбэлнэ. 
+- Кодчилоход хялбар;
+- Маш бага өгөгдөл дээр хурдан ажилладаг;
+- Бусад ижил түвшний (n^2) эрэмбэлэх аргуудыг (*selection sort*, *bubble sort*) бодвол илүү хурдтай байх хандлагатай;
+- Нэмэлт санах ой ашигладаггүй;
 
-**Time Complexity -  Хугацааны үнэлгээ**
+<center class="table-title">Хугацаа болон санах ойн үнэлгээ</center>
 
-Хамгийн шилдэг| O(n log n)
-Дундаж | O(n log n)
-Хамгийн муу | O(n^2)
-
-```python
-
-def partition(arr, low, high): 
-    i = ( low-1 )         #жижиг элемэнтүүдийн индекс
-    pivot = arr[high]     # пивот 
-    for j in range(low , high): 
-  
-        # хэрэв одоо байгаа элемент пивот элементээс бага буюу тэнцүү үед
-        if   arr[j] <= pivot: 
-            i = i+1 
-            arr[i],arr[j] = arr[j],arr[i] 
-  
-    arr[i+1],arr[high] = arr[high],arr[i+1] 
-    return ( i+1 ) 
-  
-def quickSort(arr, low, high): 
-    if low < high: 
-        # pi пивот идекс 
-        pi = partition(arr, low, high) 
- 
-        # пивот цэгээс өмнөх болон дараах (их, бага) дэд массивыг дахин эрэмбэлэх
-        quickSort(arr, low, pi-1) 
-        quickSort(arr, pi+1, high) 
-```
-
-## **Нэгтгэн эрэмбэлэх - Merge Sort**
-*Merge sort* бол энгийн, хэрэгжүүлэхэд хялбархан боловч маш хучирхэг эрэмбэлэлтийн алгоримт юм. Энэхүү алгоритм нь [Divide and Conquer][Divide and Conquer] аргачлал дээр суурилдаг буюу том өөгдлийг жижиг дэд хэсгүүдэд хуваагаад (divide), тэдгээр жижиг дэд хэсгүүдийг эрэмбэлсэний дараа буцаан нэгтгэх (conquer) байдлаар өгөгдлийг эрэмбэлдэг. 
-
-Энэ алгоримт нь хоёр зүйлээр онцлог бөгөөд давуу талтай. 1. Хүлээгдэж буй хугацааны үнэлгээ нь хамгийн муу тохиолдолд O(n log n) буюу [Харьцуулах аргаар эрэмбэлэх](https://en.wikipedia.org/wiki/Comparison_sort) алгоримтын боломжит хамгийн сайн үнэлгээнд ажиллана. 2. Энэ алгоримт нь [тогтовортой эрэмбэлэлт](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability) хийдэг буюу хамгийн ижил утгатай өгөгдлийн байрыг эрэмбэлэх үедээ алдагдуулдаггүй. 
-
-Энэхүү алгоримтын дутагдалтай тал нь ажиллахын тулд O(n) нэмэлт санах ой хэргэлдэг.
-
-**Time and Space Complexity -  Хугацаа болон санах ойн үнэлгээ**
-
-|   | Time Complexity  | Space Complexity  |
+{:.time-space-complexity}
+|                | Хугацаа         | Санах ой         |
 |---|---|---|
-| Сайн нөхцөлд  | Ω(n log n)  |  O (n) |
-| Дундаж нөхцөлд | Θ(n log n)  | O (n) |
-| Муу нөхцөлд  |  O(n log n) |  O(n) |
+| Сайн нөхцөлд  | O(n)  |  O(1) |
+| Дунджаар | O(n^2)  | O(1) |
+| Муу нөхцөлд  |  O(n^2) |  O(1) |
 
-
-```java
-public class MergeSort{
-
-    public static void sort(int[] arr){
-          sort(arr, 0, arr.length);
-    }
-
-    public static void sort(int[] arr, int low, int high){
-        //1-ээс их урттай хэсгийг л эрэмбэлнэ.
-        //1 урттай нь эрэмбэлэгдсэн гэсэн үг.
-        if(low+1 < high){
-
-            //divide хэсэг. 
-            //массивийг хоёр тэнцүү хэсэгт хувааж тус бүрд нь эрэмбэлнэ.
-            int mid = low+ (high-low)/2;
-            sort(arr, low, mid);
-            sort(arr, mid, high);
-
-            //conquer хэсэг.
-            //эрэмбэлэгдсэн дэд хэсгүүдийг нэгтгэнэ.
-            merge(arr, low, mid, high);
-        }
-    }
-
-    private static void merge(int[] arr, int low, int mid, int high){
-
-        /*Нэмэлт санах ой ашиглан эрэмбэлэгдсэн дэд
-        хэсгүүдийг хуулж байна.
-        */
-        int[] left=java.util.Arrays.copyOfRange(arr,low,mid);
-        int[] right=java.util.Arrays.copyOfRange(arr,mid,high);
-
-        /*
-        Эрэмбэлэгдсэн дэд хэсгүүдээс алхам бүрд аль багыг нь сонгон авч
-        буцаан эрэмбэлэх ёстой массив уруу хуулна.
-        */
-        int l=0;
-        int r=0;
-        while( l<left.length && r< right.length){
-             if(left[l]< right[r]){
-                 arr[low++]=left[l++];
-             }else{
-                 arr[low++]=right[r++];
-             }
-        }
-
-        /*
-        Өмнөх алхамд дуусгаагүй үлдэгдэл байвал түүнийг хуулна.
-        */
-        while(l<left.length){
-            arr[low++]=left[l++];
-        }
-
-        while(r<right.length){
-            arr[low++]=right[r++];
-        }
-    }
+{% highlight java %}
+// insertion sort алгоритмын Java дээрх код 
+class InsertionSort { 
+    /*insertion sort ашиглаж буй эрэмбэлэх функц*/
+    void sort(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i = 1; i < n; ++i) { 
+            int key = arr[i]; 
+            int j = i - 1; 
+  
+            /* key-гээс их arr[0..i-1]-ын элементүүдийг 
+            одоо байгаа байрлалын яг өмнөх байрлал руу нүүлгэж байна */
+            while (j >= 0 && arr[j] > key) { 
+                arr[j + 1] = arr[j]; 
+                j = j - 1; 
+            } 
+            arr[j + 1] = key; 
+        } 
+    } 
+  
+    /* n хэмжээтэй массивиыг хэвлэх туслах функц*/
+    static void printArray(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i = 0; i < n; ++i) 
+            System.out.print(arr[i] + " "); 
+  
+        System.out.println(); 
+    } 
+  
+    // main функц
+    public static void main(String args[]) 
+    { 
+        int arr[] = { 12, 11, 13, 5, 6 }; 
+  
+        InsertionSort ob = new InsertionSort(); 
+        ob.sort(arr); 
+  
+        printArray(arr); 
+    } 
 }
 
-```
+{% endhighlight %}
 
 
-## **Ажигласан материалууд:**
-1. https://en.wikipedia.org/wiki/Quicksort
-2. https://www.topcoder.com/community/competitive-programming/tutorials/sorting
-
-[Quicksort]: https://en.wikipedia.org/wiki/Quicksort
-[Divide and Conquer]: https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm
-
+## **Ашигласан материалууд:**
+1. https://www.topcoder.com/community/competitive-programming/tutorials/sorting
+2. https://en.wikipedia.org/wiki/Insertion_sort
+3. https://www.geeksforgeeks.org/insertion-sort

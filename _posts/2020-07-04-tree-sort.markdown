@@ -1,0 +1,115 @@
+---
+layout: post
+title:  "Модоор эрэмбэлэх - Tree Sort"
+date:   2019-11-26 01:59:54 -0500
+author: "Батцогт"
+category: "эрэмбэлэлт"
+comments: true
+---
+*Tree sort* нь [хоёртын хайлтын модны](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion) өгөгдлийн бүтцэд суурилсан эрэмбэлэх алгоритм юм. Уг алгоритм нь хамгийн түрүүнд, өгөгдсөн массивын элементүүдээр хоёртын хайлтын мод үүсгэдэг бөгөөд түүнийхээ дараа үүсгэсэн хоёртын хайлтын модоо [in-order traversal (зүүн -> эцэг -> баруун)](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion) аргаар гүйж элементүүдийг эрэмбэлэгдсэн байрлалд байрлуулдаг.
+
+**Алгоритм:**
+
+Алхам 1: Өгөгдсөн массив дахь элементүүдийг нэг нэгээр нь авна.\
+Алхам 2: Хоёртын хайлтын модонд бага элементийг зүүн талд нь их элементийг баруун талд нь оруулах замаар хоёртын хайлтын мод үүсгэнэ.\
+Алхам 3: Элементүүдийг эрэмбэлсэн дарааллаар авахын тулд модон дотроо in-order traversal (зүүн -> эцэг -> баруун) аргыг ашиглана.
+
+<center class="table-title">Хугацаа болон санах ойн үнэлгээ</center>
+
+{:.time-space-complexity}
+|                | Хугацаа         | Санах ой         |
+|---|---|---|
+| Сайн нөхцөлд  | O(n log n) |  O(n) |
+| Дунджаар | O(n log n)  | O(n) |
+| Муу нөхцөлд  | O(n^2) (unbalanced tree)  |  O(n) |
+|   | O(n log n) (balanced tree)  |  O(n) |
+
+{% highlight java %}
+// tree sort алгоритмын Java дээрх код 
+class MyTreeSort  
+{ 
+    //тухайн нүдний утга болон түүний зүүн 
+    //болон баруун нүдийг агуулсан класс
+    class Node  
+    { 
+        int key; 
+        Node left, right; 
+  
+        public Node(int item)  
+        { 
+            key = item; 
+            left = right = null; 
+        } 
+    } 
+  
+    //Хоёртын хайлтын модны үндэс (эцэг) 
+    Node root; 
+  
+    // Конструктор 
+    MyTreeSort()  
+    {  
+        root = null;  
+    } 
+  
+    // insertRec() дуудах функц
+    void insert(int key) 
+    { 
+        root = insertRec(root, key); 
+    } 
+      
+    /* Хоёртын хайлтын модонд 
+    утга нэмэх рекурсив функц */
+    Node insertRec(Node root, int key)  
+    { 
+  
+        /*Мод хоосон байвал шинэ нүд буцаана */
+        if (root == null)  
+        { 
+            root = new Node(key); 
+            return root; 
+        } 
+  
+        /*хоосон биш бол модны салааруу доош рекурс хийнэ */
+        if (key < root.key) 
+            root.left = insertRec(root.left, key); 
+        else if (key > root.key) 
+            root.right = insertRec(root.right, key); 
+  
+        /* үндсийг буцаана */
+        return root; 
+    } 
+      
+    //  Хоёртын хайлтын модонд in-order traversal хийх функц
+    void inorderRec(Node root)  
+    { 
+        if (root != null)  
+        { 
+            inorderRec(root.left); 
+            System.out.print(root.key + " "); 
+            inorderRec(root.right); 
+        } 
+    } 
+    void treeins(int arr[]) 
+    { 
+        for(int i = 0; i < arr.length; i++) 
+        { 
+            insert(arr[i]); 
+        } 
+          
+    } 
+  
+    // main функц
+    public static void main(String[] args)  
+    { 
+        MyTreeSort tree = new MyTreeSort(); 
+        int arr[] = {5, 4, 7, 2, 11}; 
+        tree.treeins(arr); 
+        tree.inorderRec(tree.root); 
+    } 
+} 
+
+{% endhighlight %}
+
+## **Ашигласан материалууд:**
+1. https://en.wikipedia.org/wiki/Tree_sort
+2. https://www.geeksforgeeks.org/tree-sort
