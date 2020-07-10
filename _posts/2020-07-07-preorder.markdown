@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Preorder traversal - Preorder нэвтрэлт"
 date:   2020-07-07
 author: Ууганболд

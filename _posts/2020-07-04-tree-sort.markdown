@@ -1,10 +1,8 @@
 ---
-layout: post
 title:  "Модоор эрэмбэлэх - Tree Sort"
 date:   2019-11-26 01:59:54 -0500
 author: "Батцогт"
 category: "эрэмбэлэлт"
-comments: true
 ---
 *Tree sort* нь [хоёртын хайлтын модны](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion) өгөгдлийн бүтцэд суурилсан эрэмбэлэх алгоритм юм. Уг алгоритм нь хамгийн түрүүнд, өгөгдсөн массивын элементүүдээр хоёртын хайлтын мод үүсгэдэг бөгөөд түүнийхээ дараа үүсгэсэн хоёртын хайлтын модоо [in-order traversal (зүүн -> эцэг -> баруун)](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion) аргаар гүйж элементүүдийг эрэмбэлэгдсэн байрлалд байрлуулдаг.
 

@@ -6,3 +6,12 @@ baseurl: "" # the subpath of your site, e.;w
 
 # Build settings
 markdown: kramdown
+
+defaults:
+  -
+    scope:
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+
